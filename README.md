@@ -1,2 +1,2 @@
 # brownbag.io
-A quick and dirty wrapper for managing docker containers
+A no frills docker orchestration tool. 
