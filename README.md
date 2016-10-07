@@ -1,2 +1,2 @@
 # brownbag.io
-A no frills docker orchestration tool. 
+A plain and simple docker orchestration tool. 
