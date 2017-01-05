@@ -5,5 +5,5 @@ A plain and simple wrapper for docker orchestration.
 
 '''
 pip install -r requirements.txt
-launch.py
+run.sh
 '''
