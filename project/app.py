@@ -10,10 +10,10 @@ from functools import wraps
 Config = ConfigParser.ConfigParser()
 Config.read("config.ini")
 
-__appname__ = "BrownBag.IO"
-__author__  = "Ian Maguire"
+__appname__ = Config.get('bbio', 'app_name')
+__author__  = Config.get('bbio', 'author')
 __version__ = Config.get('bbio', 'bbio_api_version')
-__license__ = "Creative Commons 4.0 or later"
+__license__ = Config.get('bbio', 'license')
 
 # Start Flask
 from flask import Flask, jsonify, render_template, request, Response, json, redirect, url_for, send_from_directory
@@ -84,24 +84,15 @@ startup()
 check_config()
 
 ## API Routes
-@app.route('/')
-@requires_auth
-#@#ldap.basic_auth_required
-#@#requires_ldap_auth
-def index():
-  app.logger.info("index()")
-  return render_template(
-    'index.html',
-    title='BBIO API',
-    )
 
 # Verbose health check to ensure basic functionality
 @app.route('/api/v1.0/bbio/health')
+@requires_auth
 def bbio_api_health_check():
   try:
     app.logger.info("bbio_api_health_check()")
     results = {
-      'message': 'Brown Bag IO API is running!',
+      'message': '{} is running!'.format(__appname__),
       'status': 'running',
       }
     return_data = json.dumps({'result': results})
@@ -110,6 +101,19 @@ def bbio_api_health_check():
   except Exception as e:
     error(e)
 
+# Webpages
+
+@app.route('/')
+@requires_auth
+def index():
+  app.logger.info("index()")
+  return render_template('index.html', title=__appname__)
+
+@app.route('/health')
+@requires_auth
+def health():
+  app.logger.info("health()")
+  return render_template('health.html', title=__appname__)
 
 if __name__ == '__main__':
   app.run(

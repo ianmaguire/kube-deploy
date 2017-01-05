@@ -1,0 +1,21 @@
+{
+  "name": "brownbag.io",
+  "homepage": "https://github.com/ianmaguire/brownbag.io",
+  "authors": [
+    "Ian Maguire <mr.scalability@gmail.com>"
+  ],
+  "description": "A plain and simple wrapper for docker orchestration",
+  "main": "",
+  "license": "Creative Commons 4.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "react": "^15.4.1"
+  }
+}
