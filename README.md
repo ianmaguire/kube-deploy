@@ -1,9 +1,13 @@
 # brownbag.io
 A plain and simple wrapper for docker orchestration. 
 
-## Installation 
+#### Setup environment 
 
 ```
 pip install -r requirements.txt
+```
+
+#### Launch application
+```
 run.sh
 ```
