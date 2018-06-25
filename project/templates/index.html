@@ -8,7 +8,6 @@
     <title>{{ __appname__ }}</title>
     {% endif %}    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- styles -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
@@ -22,8 +21,6 @@
       <div id="main"></div>
     </div>
     <!-- scripts -->
-    <script src="{{ url_for('static', filename='bower_components/react/react.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='bower_components/react/react-dom.min.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/js/main.js') }}"></script>
   </body>
 </html>

@@ -1,2 +1,5 @@
 Flask
 ConfigParser
+pytest
+db
+bcrypt

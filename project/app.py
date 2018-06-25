@@ -10,10 +10,10 @@ from functools import wraps
 Config = ConfigParser.ConfigParser()
 Config.read("config.ini")
 
-__appname__ = Config.get('bbio', 'app_name')
-__author__  = Config.get('bbio', 'author')
-__version__ = Config.get('bbio', 'bbio_api_version')
-__license__ = Config.get('bbio', 'license')
+__appname__ = Config.get('kube', 'app_name')
+__author__  = Config.get('kube', 'author')
+__version__ = Config.get('kube', 'kube_api_version')
+__license__ = Config.get('kube', 'license')
 
 # Start Flask
 from flask import Flask, jsonify, render_template, request, Response, json, redirect, url_for, send_from_directory
@@ -30,7 +30,7 @@ def error(message):
 
 # Place holder for anything we want to do at launch
 def startup():
-  app.logger.info('Starting Brown Bag IO')
+  app.logger.info('Starting Kube Thing')
 
 # Check config, specifically to see if authorization is required
 def check_config():
@@ -44,9 +44,9 @@ try:
   auth_required
   app.logger.info('Authentication required')
   # Import plugins
-  import plugins.bbio_auth
-  bbio_auth = plugins.bbio_auth.bbioAuth()
-  app.logger.info('Module loaded {}'.format(bbio_auth))
+  import plugins.kauth
+  kauth = plugins.kauth.kubeAuth()
+  app.logger.info('Module loaded {}'.format(kauth))
 
   # Message for failed attempts
   def authentication_fail():
@@ -61,7 +61,7 @@ try:
     def api_login(*args, **kwargs):
       auth = request.authorization
       app.logger.info("api_login username: ({})".format(auth.username))
-      auth_check = bbio_auth.auth_check(user=auth.username, passw=auth.password)
+      auth_check = kauth.auth_check(user=auth.username, passw=auth.password)
       app.logger.info("ldap_check:  ".format(ldap_check))
       if not auth or not auth_check:
         app.logger.info("Authentication failure for user {}".format(auth.username))
@@ -86,11 +86,11 @@ check_config()
 ## API Routes
 
 # Verbose health check to ensure basic functionality
-@app.route('/api/v1.0/bbio/health')
+@app.route('/api/v1.0/kube/health')
 @requires_auth
-def bbio_api_health_check():
+def kube_api_health_check():
   try:
-    app.logger.info("bbio_api_health_check()")
+    app.logger.info("kube_api_health_check()")
     results = {
       'message': '{} is running!'.format(__appname__),
       'status': 'running',
