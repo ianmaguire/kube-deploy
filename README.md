@@ -1,5 +1,5 @@
-# brownbag.io
-A plain and simple wrapper for docker orchestration. 
+# Kube Thing
+A plain and simple wrapper for kubernetes
 
 #### Setup environment 
 ```
