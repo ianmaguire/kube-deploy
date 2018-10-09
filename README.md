@@ -1,12 +1,12 @@
-# Kube Thing
-A plain and simple wrapper for kubernetes
+# Kubernetes Deployment Tools
+Kubernetes deployment using terraform and a slightly modified incubator/kubespray ansible playbook
 
 #### Setup environment 
 ```
-pip install -r requirements.txt
+terraform apply
 ```
 
 #### Launch application
 ```
-run.sh
+cd kubespray; ansible-playbook cluster.yml
 ```
