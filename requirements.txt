@@ -2,3 +2,7 @@ Flask
 ConfigParser
 pytest
 MarkDown
+mock
+unittest
+collections
+sys
