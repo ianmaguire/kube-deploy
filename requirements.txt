@@ -3,3 +3,4 @@ ConfigParser
 pytest
 MarkDown
 mock
+inventory
