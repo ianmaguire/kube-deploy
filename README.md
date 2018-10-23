@@ -10,3 +10,10 @@ terraform apply
 ```
 cd kubespray; ansible-playbook cluster.yml
 ```
+
+---
+
+-	[Travis CI:  
+	![build status badge](https://img.shields.io/travis/ianmaguire/kube-deploy/master.svg)](https://travis-ci.org/ianmaguire/kube-deploy/branches)
+
+---
