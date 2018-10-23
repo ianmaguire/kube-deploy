@@ -3,5 +3,5 @@ ConfigParser
 pytest
 MarkDown
 mock
-collections
 unittest
+sys
