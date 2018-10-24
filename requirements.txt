@@ -1,6 +1,6 @@
+inventory
+mock
+MarkDown
 Flask
 ConfigParser
 pytest
-MarkDown
-mock
-inventory
